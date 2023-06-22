@@ -1,0 +1,34 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: jobseeker-profile-service
+        uri: lb://jobseeker-profile-service
+        predicates:
+        - Path=/jobseekerprofile/**  
+      - id: job-post-service
+        uri: lb://job-post-service
+        predicates:
+        - Path=/job-post/**
+      - id: job-search-apply-service
+        uri: lb://job-search-apply-service
+        predicates:
+        - Path=/job-search/**
+      - id: shortlisting-service
+        uri: lb://shortlisting-service
+        predicates:
+        - Path=/shortlisting/**
+        
+        
+       
+        
+        
+      
+        
+       
+      
